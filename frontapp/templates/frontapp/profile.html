@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}User Profile
+        {% endblock %}</title>
+  </head>
+  <body>
+    
+    {% block content %}
+    {% if data %}    
+    
+    <br>
+    <div class="row">
+      <div class="col col-4">
+    <div class="card">
+      <div class="card-header text-bg-secondary">
+        {{ data.username }}
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>{{ data.first_name|title }} {{ data.last_name|title }}</p>
+          <footer class="blockquote-footer">User Id: {{ data.id }}<cite title="Source Title"></cite></footer>
+        </blockquote>
+      </div>
+    </div>
+    </div>
+    </div>
+    <br>
+    <a href="{% url 'delete' %}"><small>Delete User</small></a>
+
+    {% else %}
+    <small>The profile cannot be displayed presently</small>
+
+    {% endif %}
+    {% endblock %}
+  </body>
+</html>

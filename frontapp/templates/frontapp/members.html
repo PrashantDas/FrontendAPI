@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}All Members
+        {% endblock %}</title>
+  </head>
+  <body>
+    
+    {% block content %}
+
+
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col"><small>First Name</small></th>
+              <th scope="col"><small>Last Name</small></th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for each in data %}
+  
+            <tr>
+              <th scope="row">{{ each.id }}</th>
+              <td>{{ each.username }}</td>
+              <td><small>{{ each.first_name|title }}</small></td>
+              <td><small>{{ each.last_name|title }}</small></td>
+            </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+
+    
+
+
+
+    {% endblock %}
+  </body>
+</html>

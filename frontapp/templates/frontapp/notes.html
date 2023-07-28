@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Create Blog Entry
+        {% endblock %}</title>
+  </head>
+  <body>    
+    {% block content %}
+
+    
+  <div class="row">
+    <div class="col col-4">
+      <div class="card">
+        <h5 class="card-header text-bg-secondary">Create Note<small> (please ensure you are logged in)</small></h5>
+        <div class="card-body">
+
+          <form action="." method="POST"> {% csrf_token %}
+            <div class="form-floating">              
+              <input type="text" class="form-control" id="title" name="title" placeholder="Rowan">
+              <label for="title" class="form-label">Title</label>
+            </div>
+            <br>
+            <div class="form-floating">
+              <textarea class="form-control" id="exampleFormControlTextarea1" name="matter" rows="3"></textarea>
+              <label for="exampleFormControlTextarea1" class="form-label">Note</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  {{ data }}
+    {% endblock %}
+  </body>
+</html>

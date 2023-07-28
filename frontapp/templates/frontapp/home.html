@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Home Page
+        {% endblock %}</title>
+  </head>
+  <body>    
+    {% block content %}
+    <div class="row justify-content-center">
+      <div class="col">
+        <h1 class="display-6">Welcome to the frontend, experience Django REST framework</h1>
+      </div>
+    </div>
+    {% if data %}    
+    
+    {% for each in data %}
+    <br>
+
+    <div class="row justify-content-center">
+      <div class="col col-5">
+        <div class="card">
+          <div class="card-header text-bg-secondary">
+            <div class="row">
+              <div class="col">{{ each.title }}</div>
+            </div>
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p>{{ each.matter }}</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- unable to put the name of the writer, just id -->
+    <!-- unable to format the dates -->
+
+    {% endfor %}
+
+    {% else %}
+    <h3>Welcome</h3>
+    <small>There are no notes presently</small>
+
+    {% endif %}
+    {% endblock %}
+  </body>
+</html>

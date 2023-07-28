@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}
+    {% endblock %}</title>
+</head>
+
+<body>
+
+  {% block content %}
+
+  <div class="row">
+    <div class="col col-4">
+      <div class="card">
+        <h5 class="card-header text-bg-secondary">Register</h5>
+        <div class="card-body">
+          <form action="." method="POST"> {% csrf_token %}
+            <div class="form-floating">              
+              <input type="text" class="form-control" id="exampleInputEmail1" name="fname" placeholder="Rowan">
+              <label for="exampleInputEmail1" class="form-label">Name</label>
+            </div>
+            <div class="form-floating">              
+              <input type="text" class="form-control" id="exampleInputEmail1" name="lname" placeholder="Rowan">
+              <label for="exampleInputEmail1" class="form-label">Surname</label>
+            </div>
+            <div class="form-floating">              
+              <input type="text" class="form-control" id="exampleInputEmail1" name="uname" placeholder="Rowan">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+            </div>
+            <div class="form-floating">              
+              <input type="password" class="form-control" id="exampleInputPassword1" name="pname"  placeholder="******">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-outline-primary btn-sm">Submit</button>
+          </form>
+
+         
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <small>Already registered? Login here <a href="{% url 'login' %}">Login Now</a></small>
+  <br><br>
+
+  
+  {% endblock %}
+</body>
+
+</html>
